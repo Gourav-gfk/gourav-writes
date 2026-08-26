@@ -8,7 +8,9 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f8f9fa;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
 /* Navigation */
@@ -120,7 +122,11 @@ body {
 /* Writings Section */
 .writings-section {
     padding: 4rem 2rem;
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    margin: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .writings-section h2 {
@@ -212,7 +218,11 @@ body {
 /* About Section */
 .about-section {
     padding: 4rem 2rem;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    margin: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .about-section h2 {
@@ -264,7 +274,11 @@ body {
 /* Contact Section */
 .contact-section {
     padding: 4rem 2rem;
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    margin: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -371,10 +385,11 @@ body {
 
 /* Footer */
 .footer {
-    background: #333;
+    background: rgba(51, 51, 51, 0.95);
     color: white;
     text-align: center;
     padding: 2rem;
+    margin-top: 2rem;
 }
 
 /* Animations */
@@ -423,5 +438,12 @@ body {
 
     .hero {
         padding: 4rem 1rem;
+    }
+
+    .writings-section,
+    .about-section,
+    .contact-section {
+        margin: 1rem;
+        padding: 2rem 1rem;
     }
 }
