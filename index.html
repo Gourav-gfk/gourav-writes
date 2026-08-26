@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourav Writes - Creative Writing Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">✍️ Gourav Writes</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#writings" class="nav-link">Writings</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to My Writing World</h1>
+            <p>Exploring stories, thoughts, and creative expressions</p>
+            <button class="cta-button" onclick="document.getElementById('writings').scrollIntoView({behavior: 'smooth'})">
+                Read My Writings
+            </button>
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <!-- Writings Section -->
+    <section id="writings" class="writings-section">
+        <div class="container">
+            <h2>My Writings</h2>
+            <div id="writings-grid" class="writings-grid">
+                <!-- Writings will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm Gourav, a passionate writer who loves to express thoughts through creative writing. 
+                    From short stories to reflective articles, I explore various themes and genres.</p>
+                    <p>This platform is dedicated to sharing my writings with friends and anyone who loves reading. 
+                    Every piece here represents a part of my creative journey.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3 id="writing-count">0</h3>
+                        <p>Writings</p>
+                    </div>
+                    <div class="stat">
+                        <h3>📚</h3>
+                        <p>Stories</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <p>Want to share feedback or collaborate? I'd love to hear from you!</p>
+                <div class="contact-links">
+                    <a href="mailto:your-email@example.com" class="contact-link">📧 Email Me</a>
+                    <a href="https://twitter.com" class="contact-link">𝕏 Twitter</a>
+                    <a href="https://instagram.com" class="contact-link">📷 Instagram</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Gourav Writes. All writings are original and personal.</p>
+    </footer>
+
+    <!-- Modal for reading full writing -->
+    <div id="writing-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-category" class="modal-category"></p>
+            <div id="modal-body" class="modal-body"></div>
+            <p id="modal-date" class="modal-date"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
