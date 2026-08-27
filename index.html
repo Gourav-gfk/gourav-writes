@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List App - Gourav Writes</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Photo preview styles added inline to avoid needing extra CSS file changes */
+        .photo-section{margin:18px 0;padding:12px;border:1px dashed #ddd;border-radius:8px}
+        .photo-preview{display:block;max-width:240px;max-height:240px;margin-top:12px;border-radius:6px}
+        .file-input{display:flex;gap:8px;align-items:center}
+        .upload-btn{padding:8px 12px;background:#0366d6;color:#fff;border:none;border-radius:6px;cursor:pointer}
+    </style>
 </head>
 <body>
     <div class="container">
@@ -35,8 +42,52 @@
                 <span id="taskCount" class="stat">Tasks: 0</span>
                 <button id="clearBtn" class="clear-btn">Clear Completed</button>
             </div>
+
+            <!-- New: Photo upload section -->
+            <section class="photo-section">
+                <h2>Upload a Photo</h2>
+                <div class="file-input">
+                    <input type="file" id="photoInput" accept="image/*">
+                    <button id="removePhoto" class="upload-btn" style="background:#e55353;">Remove</button>
+                </div>
+                <img id="photoPreview" class="photo-preview" alt="Photo preview" src="" style="display:none">
+                <p style="margin-top:8px;color:#666;font-size:14px">Select an image to preview it locally. (Image is not uploaded anywhere.)</p>
+            </section>
+
         </div>
     </div>
+
+    <script>
+    // Photo upload + preview logic
+    (function(){
+        const photoInput = document.getElementById('photoInput');
+        const photoPreview = document.getElementById('photoPreview');
+        const removeBtn = document.getElementById('removePhoto');
+
+        photoInput.addEventListener('change', function(e){
+            const file = e.target.files && e.target.files[0];
+            if (!file) return;
+            if (!file.type.startsWith('image/')){
+                alert('Please select an image file.');
+                photoInput.value = '';
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(ev){
+                photoPreview.src = ev.target.result;
+                photoPreview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        });
+
+        removeBtn.addEventListener('click', function(e){
+            e.preventDefault();
+            photoInput.value = '';
+            photoPreview.src = '';
+            photoPreview.style.display = 'none';
+        });
+    })();
+    </script>
 
     <script src="script.js"></script>
 </body>
