@@ -6,11 +6,50 @@
     <title>Todo List App - Gourav Writes</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Photo preview styles added inline to avoid needing extra CSS file changes */
-        .photo-section{margin:18px 0;padding:12px;border:1px dashed #ddd;border-radius:8px}
-        .photo-preview{display:block;max-width:240px;max-height:240px;margin-top:12px;border-radius:6px}
+        /* Instagram-like background gradient + readable card styles */
+        body{
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+            margin: 40px;
+            color: #222;
+            min-height: 100vh;
+            background: radial-gradient(circle at 30% 20%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* subtle dark overlay to improve contrast */
+        body::before{
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.12);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container{max-width:900px;margin:0 auto;position:relative;z-index:1}
+        .todo-wrapper{
+            background: rgba(255,255,255,0.92);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        a{color:#0366d6;text-decoration:none}
+
+        /* Photo preview styles */
+        .photo-section{margin:18px 0;padding:12px;border:1px dashed rgba(0,0,0,0.08);border-radius:8px}
+        .photo-preview{display:block;max-width:240px;max-height:240px;margin-top:12px;border-radius:8px;object-fit:cover}
         .file-input{display:flex;gap:8px;align-items:center}
         .upload-btn{padding:8px 12px;background:#0366d6;color:#fff;border:none;border-radius:6px;cursor:pointer}
+        .remove-btn{padding:8px 12px;background:#e55353;color:#fff;border:none;border-radius:6px;cursor:pointer}
+
+        /* Make upload input less tall on mobile */
+        @media (max-width:600px){
+            body{margin:20px}
+            .photo-preview{max-width:100%;height:auto}
+        }
     </style>
 </head>
 <body>
@@ -43,12 +82,12 @@
                 <button id="clearBtn" class="clear-btn">Clear Completed</button>
             </div>
 
-            <!-- New: Photo upload section -->
+            <!-- Photo upload section -->
             <section class="photo-section">
                 <h2>Upload a Photo</h2>
                 <div class="file-input">
                     <input type="file" id="photoInput" accept="image/*">
-                    <button id="removePhoto" class="upload-btn" style="background:#e55353;">Remove</button>
+                    <button id="removePhoto" class="remove-btn">Remove</button>
                 </div>
                 <img id="photoPreview" class="photo-preview" alt="Photo preview" src="" style="display:none">
                 <p style="margin-top:8px;color:#666;font-size:14px">Select an image to preview it locally. (Image is not uploaded anywhere.)</p>
